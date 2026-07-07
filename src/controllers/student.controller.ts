@@ -42,4 +42,13 @@ export const updateStudent = async (req: Request, res: Response) => {
   }
 };
 
-export const deleteStudent = (req: Request, res: Response) => {};
+export const deleteStudent = async (req: Request, res: Response) => {
+  const { id } = req.query;
+
+  try {
+    const deletedUser = await studentsModel.findByIdAndDelete(id);
+    return res.json(deletedUser);
+  } catch (error) {
+    return res.json({ message: "something went wrong" });
+  }
+};

@@ -1,9 +1,9 @@
 import express from "express";
 import studentRoute from "./routes/student.route";
+import postRoute from "./routes/posts.route";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 dotenv.config();
-// const postRoute = require("./routes/posts.route");
 
 mongoose
   .connect(process.env.MONGO_URL!)
@@ -16,7 +16,7 @@ app.use(express.json());
 
 // routings
 app.use(studentRoute);
-// app.use(postRoute);
+app.use(postRoute);
 
 // we listened
 app.listen(5000, () => {
