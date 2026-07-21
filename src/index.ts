@@ -1,8 +1,9 @@
-import express from "express";
+import express, { Request, Response, NextFunction } from "express";
 import studentRoute from "./routes/student.route";
 import postRoute from "./routes/posts.route";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
+
 dotenv.config();
 
 mongoose
@@ -17,6 +18,11 @@ app.use(express.json());
 // routings
 app.use(studentRoute);
 app.use(postRoute);
+
+// error handling middleware
+app.use((error: Error, req: Request, res: Response, next: NextFunction) => {
+  return res.json({ message: error.message || "Server Error try again" });
+});
 
 // we listened
 app.listen(5000, () => {
