@@ -16,6 +16,9 @@ const app = express();
 app.use(express.json());
 
 // routings
+app.get("/", (req, res) => {
+  return res.send("Welcome to Next college");
+});
 app.use(studentRoute);
 app.use(postRoute);
 
