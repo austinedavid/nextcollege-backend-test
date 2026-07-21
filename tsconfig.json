@@ -5,7 +5,9 @@
     "target": "es2020",
     "strict": true,
     "esModuleInterop": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "outDir": "./dist",
+    "rootDir": "./src"
   },
   "ts-node": {
     "files": true
