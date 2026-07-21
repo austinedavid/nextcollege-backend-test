@@ -27,7 +27,7 @@ app.use((error: Error, req: Request, res: Response, next: NextFunction) => {
   return res.json({ message: error.message || "Server Error try again" });
 });
 
-const PORT = process.env.port || 5000;
+const PORT = process.env.PORT || 5000;
 // we listened
 app.listen(PORT, () => {
   console.log("app is running at port:5000");
